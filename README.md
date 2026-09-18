@@ -8,10 +8,21 @@ An extensible, **unofficial** multiplayer foundation for the PC version of *Car 
 - lobby/player registry;
 - JSON message contracts and validation;
 - transport abstraction (the networking backend can be replaced);
+- a standalone TCP session host for LAN/Tailscale testing;
+- player-presence snapshots (name, position and rotation) for remote avatar rendering;
 - Unity/BepInEx adapter seam kept separate from network-domain code;
-- extension points for player presence, garage state, vehicle state and shared jobs.
 
 This is a technical foundation, not a complete online-co-op conversion. CMS2021's game-specific save, vehicle and gameplay hooks require testing against the owner's installed game build and its IL2CPP assemblies.
+
+## LAN host test
+
+Run the standalone host on the machine that will host the session:
+
+```bash
+dotnet run --project src/Cms2021Multiplayer.Server -- 31337
+```
+
+It listens on TCP port `31337`. On the same LAN, clients will use the host computer's local IP. Across the internet, prefer Tailscale first; do not expose this development protocol publicly yet.
 
 ## Planned mod layout
 

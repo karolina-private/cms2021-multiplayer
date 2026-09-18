@@ -15,5 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Cms2021Multiplayer/Cms2021Multiplayer.csproj" />
+    <ProjectReference Include="../../src/Cms2021Multiplayer.Server/Cms2021Multiplayer.Server.csproj" />
   </ItemGroup>
 </Project>
